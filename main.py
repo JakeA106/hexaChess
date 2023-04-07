@@ -34,7 +34,6 @@ def identifypiece(location):
 def capture(capturer, captured):
     rowcolumn[(int(loc2[0])-1)][(int(loc2[2])-1)] = rowcolumn[(int(loc1[0])-1)][(int(loc1[2])-1)]
     rowcolumn[(int(loc1[0])-1)][(int(loc1[2])-1)] = 0
-    return capturer, captured
 while True:
     loc1 = str(input("What original location? "))
     if rowcolumn[(int(loc1[0])-1)][(int(loc1[2])-1)] == 0:
