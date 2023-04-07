@@ -31,14 +31,23 @@ def identifypiece(location):
         return "camel"
     elif location == 7:
         return "king"
+def capture(capturer, captured):
+    rowcolumn[(int(loc2[0])-1)][(int(loc2[2])-1)] = rowcolumn[(int(loc1[0])-1)][(int(loc1[2])-1)]
+    rowcolumn[(int(loc1[0])-1)][(int(loc1[2])-1)] = 0
+    return capturer, captured
 while True:
     loc1 = str(input("What original location? "))
-    if rowcolumn[(int(loc1[0])-1)][(int(loc1[1])-1)] == 0:
+    if rowcolumn[(int(loc1[0])-1)][(int(loc1[2])-1)] == 0:
         print("There is no piece there!")
     else:
-        print("There is a " + str(identifypiece(rowcolumn[(int(loc1[0])-1)][(int(loc1[1])-1)])) + " there.")
+        print("There is a " + str(identifypiece(rowcolumn[(int(loc1[0])-1)][(int(loc1[2])-1)])) + " there.")
 
         loc2 = str(input("What new location? "))
-        rowcolumn[(int(loc1[0])-1)][(int(loc1[1])-1)],rowcolumn[(int(loc2[0])-1)][(int(loc2[1])-1)] = rowcolumn[(int(loc2[0])-1)][(int(loc2[1])-1)],rowcolumn[(int(loc1[0])-1)][(int(loc1[1])-1)]
+        if rowcolumn[(int(loc2[0])-1)][(int(loc2[2])-1)] == 0:
+            rowcolumn[(int(loc1[0])-1)][(int(loc1[2])-1)],rowcolumn[(int(loc2[0])-1)][(int(loc2[2])-1)] = rowcolumn[(int(loc2[0])-1)][(int(loc2[2])-1)],rowcolumn[(int(loc1[0])-1)][(int(loc1[2])-1)]
+            print("The " + str(identifypiece(rowcolumn[(int(loc1[0])-1)][(int(loc1[2])-1)])) + " at " + loc1 + " moved to " + loc2 + ".")
+        else:
+            capture(rowcolumn[(int(loc1[0])-1)][(int(loc1[2])-1)], rowcolumn[(int(loc2[0])-1)][(int(loc2[2])-1)])
+            print("The " + str(identifypiece(rowcolumn[(int(loc1[0])-1)][(int(loc1[2])-1)])) + " at " + loc1 + " captured the " + str(identifypiece(rowcolumn[(int(loc2[0])-1)][(int(loc2[2])-1)])) + " at " + loc2)
         for i in range(9):
             print(rowcolumn[i])
