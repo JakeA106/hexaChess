@@ -38,7 +38,7 @@ def identifypiece(location):
     elif location == 8:
         return "camel"    
 
-def capture(capturer, captured):
+def capture():
     rowcolumn[(int(loc2[0])-1)][(int(loc2[2])-1)] = rowcolumn[(int(loc1[0])-1)][(int(loc1[2])-1)]
     rowcolumn[(int(loc1[0])-1)][(int(loc1[2])-1)] = 0
 
@@ -48,6 +48,8 @@ while True:
 
     if rowcolumn[(int(loc1[0])-1)][(int(loc1[2])-1)] == 0:
         print("There is no piece there!")
+        for i in range(9):
+            print(rowcolumn[i])
     
     else:
         print("There is a " + str(identifypiece(rowcolumn[(int(loc1[0])-1)][(int(loc1[2])-1)])) + " there.")
@@ -60,8 +62,8 @@ while True:
             print("The " + str(identifypiece(rowcolumn[(int(loc1[0])-1)][(int(loc1[2])-1)])) + " at " + loc1 + " moved to " + loc2 + ".")
         
         else:
-            capture(rowcolumn[(int(loc1[0])-1)][(int(loc1[2])-1)], rowcolumn[(int(loc2[0])-1)][(int(loc2[2])-1)])
             print("The " + str(identifypiece(rowcolumn[(int(loc1[0])-1)][(int(loc1[2])-1)])) + " at " + loc1 + " captured the " + str(identifypiece(rowcolumn[(int(loc2[0])-1)][(int(loc2[2])-1)])) + " at " + loc2)
-        
+            capture()
+                    
         for i in range(9):
             print(rowcolumn[i])
