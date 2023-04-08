@@ -48,7 +48,6 @@ def identifypiece(location):
     elif location == 8:
         return "camel"    
 
-
 def capture():
     rowcolumn[(int(loc2[0])-1)][(int(loc2[1])-1)] = rowcolumn[(int(loc1[0])-1)][(int(loc1[1])-1)]
     rowcolumn[(int(loc1[0])-1)][(int(loc1[1])-1)] = 0
@@ -63,28 +62,125 @@ def move():
         capture()
         
 def knightmove(loc1a, loc1b, loc2a, loc2b):
-    if int(loc1a) - int(loc2a) == -2:
-        if int(loc1b) - (int(loc2b)) == -1 or int(loc1b) - (int(loc2b)) == 1:
-            move()
+    if loc1a == 4 and loc2a == 6:
+        if int(loc1a) - int(loc2a) == -2:
+            if int(loc1b) - (int(loc2b)) == -2:
+                move()
+            else:
+                print("The knight can't move there!")
+        elif int(loc1a) - int(loc2a) == -1:
+            if int(loc1b) - (int(loc2b)) == -2 or int(loc1b) - (int(loc2b)) == 1:
+                move()
+            else:
+                print("The knight can't move there!")
+        elif int(loc1a) - int(loc2a) == 1:
+            if int(loc1b) - int(loc1b) - (int(loc2b)) == -1 or int(loc1b) - (int(loc2b)) == 2:
+                move()
+            else:
+                print("The knight can't move there!")
+        elif int(loc1a) - int(loc2a) == 2:
+            if int(loc1b) - (int(loc2b)) == 0:
+                move()
+            else:
+                print("The knight can't move there!")
         else:
-            print("The knight can't move there!")
-    elif int(loc1a) - int(loc2a) == -1:
-        if int(loc1b) - (int(loc2b)) == -2 or int(loc1b) - (int(loc2b)) == -1 or int(loc1b) - (int(loc2b)) == 1 or int(loc1b) - (int(loc2b)) == 2:
-            move()
-        else:
-            print("The knight can't move there!")
-    elif int(loc1a) - int(loc2a) == 1:
-        if int(loc1b) - (int(loc2b)) == -2 or int(loc1b) - (int(loc2b)) == -1 or int(loc1b) - (int(loc2b)) == 1 or int(loc1b) - (int(loc2b)) == 2:
-            move()
-        else:
-            print("The knight can't move there!")
-    elif int(loc1a) - int(loc2a) == 2:
-        if int(loc1b) - (int(loc2b)) == -1 or int(loc1b) - (int(loc2b)) == 1:
-            move()
+            print("The knight can't move there!")        
+    elif loc1a == 6 and loc2a == 4:
+        if int(loc1a) - int(loc2a) == -2:
+            if int(loc1b) - (int(loc2b)) == 0:
+                move()
+            else:
+                print("The knight can't move there!")
+        elif int(loc1a) - int(loc2a) == -1:
+            if int(loc1b) - (int(loc2b)) == -1 or int(loc1b) - (int(loc2b)) == 2:
+                move()
+            else:
+                print("The knight can't move there!")
+        elif int(loc1a) - int(loc2a) == 1:
+            if int(loc1b) - (int(loc2b)) == -2 or int(loc1b) - (int(loc2b)) == 1:
+                move()
+            else:
+                print("The knight can't move there!")
+        elif int(loc1a) - int(loc2a) == 2:
+            if int(loc1b) - (int(loc2b)) == -2:
+                move()
+            else:
+                print("The knight can't move there!")
         else:
             print("The knight can't move there!")
     else:
-        print("The knight can't move there!")
+        if int(loc1a) - int(loc2a) == -2:
+            if int(loc1b) - (int(loc2b)) == -1 or int(loc1b) - (int(loc2b)) == 1:
+                move()
+            else:
+                print("The knight can't move there!")
+        elif int(loc1a) - int(loc2a) == -1:
+            if int(loc1b) - (int(loc2b)) == -2 or int(loc1b) - (int(loc2b)) == -1 or int(loc1b) - (int(loc2b)) == 1 or int(loc1b) - (int(loc2b)) == 2:
+                move()
+            else:
+                print("The knight can't move there!")
+        elif int(loc1a) - int(loc2a) == 1:
+            if int(loc1b) - (int(loc2b)) == -2 or int(loc1b) - (int(loc2b)) == -1 or int(loc1b) - (int(loc2b)) == 1 or int(loc1b) - (int(loc2b)) == 2:
+                move()
+            else:
+                print("The knight can't move there!")
+        elif int(loc1a) - int(loc2a) == 2:
+            if int(loc1b) - (int(loc2b)) == -1 or int(loc1b) - (int(loc2b)) == 1:
+                move()
+            else:
+                print("The knight can't move there!")
+        else:
+            print("The knight can't move there!")
+
+def kingmove(loc1a, loc1b, loc2a, loc2b):
+    if loc1a < 5:
+        if int(loc1a) - int(loc2a) == -1:
+            if int(loc1b) - (int(loc2b)) == -1 or int(loc1b) - (int(loc2b)) == 0:
+                move()
+            else:
+                print("The king can't move there!")
+        if int(loc1a) - int(loc2a) == 0:
+            if int(loc1b) - (int(loc2b)) == -1 or int(loc1b) - (int(loc2b)) == 1:
+                move()
+            else:
+                print("The king can't move there!")
+        if int(loc1a) - int(loc2a) == +1:
+            if int(loc1b) - (int(loc2b)) == 0 or int(loc1b) - (int(loc2b)) == 1:
+                move()
+            else:
+                print("The king can't move there!")
+    elif loc1a > 5:
+        if int(loc1a) - int(loc2a) == -1:
+            if int(loc1b) - (int(loc2b)) == -1 or int(loc1b) - (int(loc2b)) == 0:
+                move()
+            else:
+                print("The king can't move there!")
+        if int(loc1a) - int(loc2a) == 0:
+            if int(loc1b) - (int(loc2b)) == -1 or int(loc1b) - (int(loc2b)) == 1:
+                move()
+            else:
+                print("The king can't move there!")
+        if int(loc1a) - int(loc2a) == +1:
+            if int(loc1b) - (int(loc2b)) == -1 or int(loc1b) - (int(loc2b)) == 0:
+                move()
+            else:
+                print("The king can't move there!")
+    else:
+        if int(loc1a) - int(loc2a) == -1:
+            if int(loc1b) - (int(loc2b)) == 0 or int(loc1b) - (int(loc2b)) == 1:
+                move()
+            else:
+                print("The king can't move there!")
+        if int(loc1a) - int(loc2a) == 0:
+            if int(loc1b) - (int(loc2b)) == -1 or int(loc1b) - (int(loc2b)) == 1:
+                move()
+            else:
+                print("The king can't move there!")
+        if int(loc1a) - int(loc2a) == +1:
+            if int(loc1b) - (int(loc2b)) == -1 or int(loc1b) - (int(loc2b)) == 0:
+                move()
+            else:
+                print("The king can't move there!")
 
 while True:
 
@@ -106,4 +202,6 @@ while True:
         
         if identifypiece(rowcolumn[(int(loc1[0])-1)][(int(loc1[1])-1)]) == "knight":
             knightmove(loc1[0], loc1[1], loc2[0], loc2[1])
+        if identifypiece(rowcolumn[(int(loc1[0])-1)][(int(loc1[1])-1)]) == "king":
+            kingmove(loc1[0], loc1[1], loc2[0], loc2[1])
         printboard()
