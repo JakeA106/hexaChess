@@ -19,6 +19,16 @@ row7 =   [1,3,1,1,3,1]
 row8 =    [6,5,7,4,8]
 rowcolumn = [row0,row1,row2,row3,row4,row5,row6,row7,row8]
 
+def printboard():
+    print("      " + str(row0))
+    print("     " + str(row1))
+    print("   " + str(row2))
+    print(" " + str(row3))
+    print(str(row4))
+    print(" " + str(row5))
+    print("   " + str(row6))
+    print("     " + str(row7))
+    print("      " + str(row8))
 
 def identifypiece(location):
     if  location == 1:
@@ -38,32 +48,62 @@ def identifypiece(location):
     elif location == 8:
         return "camel"    
 
-def capture():
-    rowcolumn[(int(loc2[0])-1)][(int(loc2[2])-1)] = rowcolumn[(int(loc1[0])-1)][(int(loc1[2])-1)]
-    rowcolumn[(int(loc1[0])-1)][(int(loc1[2])-1)] = 0
 
+def capture():
+    rowcolumn[(int(loc2[0])-1)][(int(loc2[1])-1)] = rowcolumn[(int(loc1[0])-1)][(int(loc1[1])-1)]
+    rowcolumn[(int(loc1[0])-1)][(int(loc1[1])-1)] = 0
+
+def move():
+    if rowcolumn[(int(loc2[0])-1)][(int(loc2[1])-1)] == 0:
+        print("The " + str(identifypiece(rowcolumn[(int(loc2[0])-1)][(int(loc2[1])-1)])) + " at " + str(loc1) + " moved to " + str(loc2) + ".")
+        rowcolumn[(int(loc1[0])-1)][(int(loc1[1])-1)],rowcolumn[(int(loc2[0])-1)][(int(loc2[1])-1)] = rowcolumn[(int(loc2[0])-1)][(int(loc2[1])-1)],rowcolumn[(int(loc1[0])-1)][(int(loc1[1])-1)]
+
+    else:
+        print("The " + identifypiece(rowcolumn[(int(loc1[0])-1)][(int(loc1[1])-1)]) + " at " + str(loc1) + " captured the " + identifypiece(rowcolumn[(int(loc2[0])-1)][(int(loc2[1])-1)]) + " at " + str(loc2))
+        capture()
+        
+def knightmove(loc1a, loc1b, loc2a, loc2b):
+    if int(loc1a) - int(loc2a) == -2:
+        if int(loc1b) - (int(loc2b)) == -1 or int(loc1b) - (int(loc2b)) == 1:
+            move()
+        else:
+            print("The knight can't move there!")
+    elif int(loc1a) - int(loc2a) == -1:
+        if int(loc1b) - (int(loc2b)) == -2 or int(loc1b) - (int(loc2b)) == -1 or int(loc1b) - (int(loc2b)) == 1 or int(loc1b) - (int(loc2b)) == 2:
+            move()
+        else:
+            print("The knight can't move there!")
+    elif int(loc1a) - int(loc2a) == 1:
+        if int(loc1b) - (int(loc2b)) == -2 or int(loc1b) - (int(loc2b)) == -1 or int(loc1b) - (int(loc2b)) == 1 or int(loc1b) - (int(loc2b)) == 2:
+            move()
+        else:
+            print("The knight can't move there!")
+    elif int(loc1a) - int(loc2a) == 2:
+        if int(loc1b) - (int(loc2b)) == -1 or int(loc1b) - (int(loc2b)) == 1:
+            move()
+        else:
+            print("The knight can't move there!")
+    else:
+        print("The knight can't move there!")
 
 while True:
-    loc1 = str(input("What original location? "))
 
-    if rowcolumn[(int(loc1[0])-1)][(int(loc1[2])-1)] == 0:
+    loc1 = str(input("What original location? "))
+    loc1 = loc1.split(",")
+
+    if (int(loc1[0])) > 9 or (int(loc1[0])) < 1 or (int(loc1[1])) < 1 or len(rowcolumn[(int(loc1[0])-1)]) < (int(loc1[1])-1):
+        print("The coordinate " + str(loc1) + " is off the board!")
+        printboard()
+    elif rowcolumn[(int(loc1[0])-1)][(int(loc1[1])-1)] == 0:
         print("There is no piece there!")
-        for i in range(9):
-            print(rowcolumn[i])
+        printboard()
     
     else:
-        print("There is a " + str(identifypiece(rowcolumn[(int(loc1[0])-1)][(int(loc1[2])-1)])) + " there.")
+        print("There is a " + identifypiece(rowcolumn[(int(loc1[0])-1)][(int(loc1[1])-1)]) + " there.")
 
         loc2 = str(input("What new location? "))
-
-
-        if rowcolumn[(int(loc2[0])-1)][(int(loc2[2])-1)] == 0:
-            rowcolumn[(int(loc1[0])-1)][(int(loc1[2])-1)],rowcolumn[(int(loc2[0])-1)][(int(loc2[2])-1)] = rowcolumn[(int(loc2[0])-1)][(int(loc2[2])-1)],rowcolumn[(int(loc1[0])-1)][(int(loc1[2])-1)]
-            print("The " + str(identifypiece(rowcolumn[(int(loc1[0])-1)][(int(loc1[2])-1)])) + " at " + loc1 + " moved to " + loc2 + ".")
+        loc2 = loc2.split(",")
         
-        else:
-            print("The " + str(identifypiece(rowcolumn[(int(loc1[0])-1)][(int(loc1[2])-1)])) + " at " + loc1 + " captured the " + str(identifypiece(rowcolumn[(int(loc2[0])-1)][(int(loc2[2])-1)])) + " at " + loc2)
-            capture()
-                    
-        for i in range(9):
-            print(rowcolumn[i])
+        if identifypiece(rowcolumn[(int(loc1[0])-1)][(int(loc1[1])-1)]) == "knight":
+            knightmove(loc1[0], loc1[1], loc2[0], loc2[1])
+        printboard()
