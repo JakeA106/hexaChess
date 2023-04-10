@@ -40,7 +40,7 @@ def identifypiece(location):
     elif location == 4:
         return "queen"
     elif location == 5:
-        return "chancellor"
+        return "THE POPE"
     elif location == 6:
         return "camel"
     elif location == 7:
