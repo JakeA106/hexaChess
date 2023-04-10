@@ -182,6 +182,167 @@ def kingmove(loc1a, loc1b, loc2a, loc2b):
             else:
                 print("The king can't move there!")
 
+def queenmove(loc1a, loc1b, loc2a, loc2b):
+    if loc1a == 1:
+        if loc2a == loc1a:
+            move()
+        if loc2a == (loc1a + 1):
+            if (loc2b == loc2a) or (loc2b == (loc2a + 1)):
+                move()
+        if (loc2a > loc1a) and (loc2a < 6):
+            if (loc2a - loc1a) == (loc2b - loc1b):
+                move()
+            if loc1b == loc2b:
+                move()
+    if loc1a == 2:
+        if loc2a == loc1a:
+            move()
+        if loc2a == (loc1a + 1):
+            if (loc2b == loc2a) or (loc2b == (loc2a + 1)):
+                move()
+        if loc2a == (loc1a - 1):
+            if (loc2b == (loc2a - 1)) or (loc2b == loc2a):
+                move()
+        if loc2a < loc1a:
+            if (loc1a - loc2a) == (loc1b - loc2b):
+                move()
+            if loc1b == loc2b:
+                move()
+        if (loc2a > loc1a) and (loc2a < 6):
+            if (loc2a - loc1a) == (loc2b - loc1b):
+                move()
+            if loc1b == loc2b:
+                move()
+    if loc1a == 3:
+        if loc2a == loc1a:
+            move()
+        if loc2a == (loc1a + 1):
+            if (loc2b == loc2a) or (loc2b == (loc2a + 1)):
+                move()
+        if loc2a == (loc1a - 1):
+            if (loc2b == (loc2a - 1)) or (loc2b == loc2a):
+                move()
+        if loc2a < loc1a:
+            if (loc1a - loc2a) == (loc1b - loc2b):
+                move()
+            if loc1b == loc2b:
+                move()
+        if (loc2a > loc1a) and (loc2a < 6):
+            if (loc2a - loc1a) == (loc2b - loc1b):
+                move()
+            if loc1b == loc2b:
+                move()
+    if loc1a == 4:
+        if loc2a == loc1a:
+            move()
+        if loc2a == (loc1a + 1):
+            if (loc2b == loc2a) or (loc2b == (loc2a + 1)):
+                move()
+        if loc2a == (loc1a - 1):
+            if (loc2b == (loc2a - 1)) or (loc2b == loc2a):
+                move()
+        if loc2a < loc1a:
+            if (loc1a - loc2a) == (loc1b - loc2b):
+                move()
+            if loc1b == loc2b:
+                move()
+        if (loc2a > loc1a) and (loc2a < 6):
+            if (loc2a - loc1a) == (loc2b - loc1b):
+                move()
+            if loc1b == loc2b:
+                move()
+    if loc1a == 5:
+        if loc2a == loc1a:
+            move()
+        if loc2a == (loc1a - 1):
+            if (loc2b == (loc2a - 1)) or (loc2b == loc2a):
+                move()
+        if loc2a == (loc1a + 1):
+            if (loc2b == (loc2a - 1)) or (loc2b == loc2a):
+                move()
+        if loc2a < loc1a:
+            if (loc1a - loc2a) == (loc1b - loc2b):
+                move()
+            if loc1b == loc2b:
+                move()
+        if loc2a > loc1a:
+            if (loc2a - loc1a) == (loc2b - loc1b):
+                move()
+            if loc1b == loc2b:
+                move()
+    if loc1a == 6:
+        if loc2a == loc1a:
+            move()
+        if loc2a == (loc1a - 1):
+            if (loc2b == loc2a) or (loc2b == (loc2a + 1)):
+                move()
+        if loc2a == (loc1a + 1):
+            if (loc2b == (loc2a - 1)) or (loc2b == loc2a):
+                move()
+        if loc2a > loc1a:
+            if (loc2a - loc1a) == (loc2b - loc1b):
+                move()
+            if loc1b == loc2b:
+                move()
+        if (loc2a < loc1a) and (loc2a > 4):
+            if (loc2a - loc1a) == (loc2b - loc1b):
+                move()
+            if loc1b == loc2b:
+                move()
+    if loc1a == 7:
+        if loc2a == loc1a:
+            move()
+        if loc2a == (loc1a - 1):
+            if (loc2b == loc2a) or (loc2b == (loc2a + 1)):
+                move()
+        if loc2a == (loc1a + 1):
+            if (loc2b == (loc2a - 1)) or (loc2b == loc2a):
+                move()
+        if loc2a > loc1a:
+            if (loc2a - loc1a) == (loc2b - loc1b):
+                move()
+            if loc1b == loc2b:
+                move()
+        if (loc2a < loc1a) and (loc2a > 4):
+            if (loc2a - loc1a) == (loc2b - loc1b):
+                move()
+            if loc1b == loc2b:
+                move()
+    if loc1a == 8:
+        if loc2a == loc1a:
+            move()
+        if loc2a == (loc1a - 1):
+            if (loc2b == loc2a) or (loc2b == (loc2a + 1)):
+                move()
+        if loc2a == (loc1a + 1):
+            if (loc2b == (loc2a - 1)) or (loc2b == loc2a):
+                move()
+        if loc2a > loc1a:
+            if (loc2a - loc1a) == (loc2b - loc1b):
+                move()
+            if loc1b == loc2b:
+                move()
+        if (loc2a < loc1a) and (loc2a > 4):
+            if (loc2a - loc1a) == (loc2b - loc1b):
+                move()
+            if loc1b == loc2b:
+                move()
+    if loc1a == 9:
+        if loc2a == loc1a:
+            move()
+        if loc2a == (loc1a - 1):
+            if (loc2b == loc2a) or (loc2b == (loc2a + 1)):
+                move()
+        if loc2a == (loc1a + 1):
+            if (loc2b == (loc2a - 1)) or (loc2b == loc2a):
+                move()
+        if (loc2a < loc1a) and (loc2a > 4):
+            if (loc2a - loc1a) == (loc2b - loc1b):
+                move()
+            if loc1b == loc2b:
+                move()
+    
+
 while True:
 
     loc1 = str(input("What original location? "))
