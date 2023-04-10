@@ -366,3 +366,5 @@ while True:
         if identifypiece(rowcolumn[(int(loc1[0])-1)][(int(loc1[1])-1)]) == "king":
             kingmove(loc1[0], loc1[1], loc2[0], loc2[1])
         printboard()
+
+        #Hehehehaw
